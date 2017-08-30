@@ -110,6 +110,29 @@ When combining the Discrete Element modelling of grain interactions with the lat
 
 This results in a subcycling time integration for the Discrete Element part.  $\Delta t$ every step of the fluid computation, $n_s$ sub-steps of integration are performed for DEM using the time step  $\Delta t_s$. The hydrodynamic force is unchanged during this sub-cycling.
 
+\subsection{Modelling Permeability}
+In DEM, the grain -- grain interaction is described based on the contact interactions. In a 3D granular assembly, the pore spaces between grains are interconnected, whereas in 2-D assembly, the grains are in contact with each other that result in a non-interconnected pore-fluid space. This results in a no flow condition in a 2-D case (see~\cref{fig:Carman}). In order to overcome this difficulty, a reduction in radius is assumed only during LBM computations (fluid and fluid--solid interaction), which is called the hydrodynamic radius. The hydrodynamic radius allows interconnected pore space through which the surrounding fluid can flow (hydrodynamic radius r = 0.7 R to 0.95 R, where `R' is the grain radius). The hydrodynamic radius is used only during the LBM computations, and has no effect on the grain--grain interactions computed using DEM.  Different values of macroscopic permeability can be obtained for any given initial packing by varying the hydrodynamic radius of the grains, without having to change the actual granular packing. This introduces a new parameter into the system. In a physical sense, a hydrodynamic radius represents the three-dimensional permeability of a granular assembly simulated as a two-dimensional geometry.
+
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.9\textwidth]{figs/Carman}
+\caption{Relation between permeability and porosity for 
+different hydrodynamic radius and comparison with the analytical solution.}
+\label{fig:Carman}
+\end{figure}
+
+In order to understand the relation between the hydrodynamic radius and the permeability of a granular assembly, permeability tests are performed by varying the hydrodynamic radius r as 0.7 R, 0.75 R, 0.8 R, 0.85 R, 0.9 R and 0.95 R. The permeability values obtained are normalized by the square of the average grain diameter following the Carman-Kozeny equations~\citep{Yazdchi2011}. The comparison of normalised permeability from the 2D LB-DEM simulations with the Carman-Kozeny equations for spherical and cylindrical grain assembly for different porosities are presented in~\cref{fig:reduction}. It can be observed from the figure that the permeability decreases drastically as the radius is decreased from 0.7R to 0.95R. The granular assembly is almost impermeable for a hydrodynamic radius of 0.95R. The normalized permeability is found to match the qualitative trend of the Carman-Kozeny equations.
+
+\begin{figure}[tbhp]
+\centering
+\includegraphics[width=0.45\textwidth]{figs/reduction}
+\caption{Schematic representation of the hydrodynamic radius in LBM-DEM 
+computation.}
+\label{fig:reduction}
+\end{figure}
+
+
 \selectlanguage{english}
 \section*{References}
 \printbibliography[heading=none]
