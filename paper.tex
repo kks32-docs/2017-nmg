@@ -5,7 +5,9 @@
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{times,rotating}
-\usepackage[round, sort, numbers, authoryear]{natbib} %author year
+
+\usepackage[backend=biber, style=numeric, citestyle=authoryear, sorting=nty, natbib=true]{biblatex}
+\bibliography{references} %Location of references.bib only for biblatex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{cleveref}
@@ -19,13 +21,13 @@
 \pagenumbering{gobble}
 
 \begin{document}
+\selectlanguage{english}
 
 \Header{Granular column collapse on slope: Effect of permeability on the runout characteristics}{Krishna Kumar, Jean-Yves Delenne, Kenichi Soga}{1}
 
 \Abstract{This paper investigates the effect of permeability on the runout characteristics of collapse of  granular columns on slopes in fluid. Two-dimensional sub-grain scale numerical simulations are performed to understand the flow dynamics of granular collapse in fluid. The Discrete Element (DEM) technique is coupled with the Lattice Boltzmann Method (LBM), for fluid-grain interactions, to understand the evolution of submerged granular flows. The fluid phase is simulated using Multiple-Relaxation-Time LBM (LBM-MRT) for numerical stability. In order to simulate interconnected pore space in 2D, a reduction in the radius of the grains (hydrodynamic radius) is assumed during LBM computations. The collapse of granular column in fluid is compared with the dry cases to understand the effect of fluid on the runout behaviour. A parametric analysis is performed to assess the influence of the granular characteristics (initial packing) on the evolution of flow and run-out distances for slope angles of 5°. In order to understand the effect of permeability on granular flow down a slope angle of 5°, the collapse of a granular column with an initial aspect ratio of 0.8 is simulated with different permeabilities. The hydrodynamic radius of a loosely packed granular column is varied from r = 0.7 R (high permeability), 0.75 R, 0.8 R, 0.85 R to 0.9 R (low permeability). The granular flow dynamics is investigated by analysing the effect of hydroplaning, water entrainment and viscous drag on the granular mass. The mechanism of energy dissipation, shape of the flow front, water entrainment and evolution of packing density is used to explain the difference in the flow characteristics of granular column collapse in fluid.}
 
 \section{Introduction}
-
 Catastrophic earth movement events, such as landslides, debris flows, rock avalanches and reservoir embankment failures, exemplify the potential consequences of an earth gravitational instability. Slope failure is a problem of high practical importance for both civil engineering structures and natural hazard management. The study described in this paper examines the stability of underwater slopes, which are caused by excess seepage or earthquakes.  They can damage offshore structures nearby and may generate a tsunami. 
 
 In order to describe the mechanism of underwater granular flows, it is necessary to consider both the dynamics of the solid phase of granular matter and the role of the ambient fluid, which exists either inside the pores of the granular body and as free water outside the granular body~\citep{Denlinger2001,Iverson1997}. Initial acceleration plays a crucial role in underwater landslide propagation~\citep{Romano2017}, as the initial acceleration increases, there is a limited time for the landslide to deform during the acceleration phase. The initiation and propagation of submarine granular flows depend mainly on geometry (e.g. slope angle, lateral extent, etc), initial stress conditions, density, soil properties, and the quantity of the material destabilised. Although certain macroscopic models are capable of capturing simple mechanical behaviour (e.g.~\citet{Topin2011}), the complex fundamental mechanism that occurs at the grain scale, such as hydrodynamic instabilities, the formation of clusters, collapse, and transport, require further investigation in order to make better engineering assessment of the potential risk of damages against underwater slope failures for example. 
@@ -36,9 +38,8 @@ The grain-scale description of the granular material enriches the macro-scale va
 The case of granular material movements in presence of an interstitial fluid at the grain-scale has been less studied. In this paper, we report the findings of the study on the granular column collapse in fluid in the inclined configuration using the coupled Lattice Boltzmann Method (LBM) and Discrete Element Method (DEM). We examined the effect of density and slope angle on the runout evolution.
 
 \selectlanguage{english}
-\bibliographystyle{apalike}
-\bibliography{references} % Path to your References.bib file
-
+\section*{References}
+\printbibliography[heading=none]
 
 \section*{Author}\small
 Dr.\ Krishna Kumar\\
