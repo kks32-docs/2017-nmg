@@ -6,7 +6,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{times,rotating}
 
-\usepackage[backend=biber, style=numeric, citestyle=authoryear, sorting=nty, natbib=true]{biblatex}
+\usepackage[backend=biber, style=chem-angew, citestyle=authoryear, sorting=nty, natbib=true]{biblatex}
 \bibliography{references} %Location of references.bib only for biblatex
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,7 +111,7 @@ When combining the Discrete Element modelling of grain interactions with the lat
 This results in a subcycling time integration for the Discrete Element part.  $\Delta t$ every step of the fluid computation, $n_s$ sub-steps of integration are performed for DEM using the time step  $\Delta t_s$. The hydrodynamic force is unchanged during this sub-cycling.
 
 \subsection{Modelling Permeability}
-In DEM, the grain -- grain interaction is described based on the contact interactions. In a 3D granular assembly, the pore spaces between grains are interconnected, whereas in 2-D assembly, the grains are in contact with each other that result in a non-interconnected pore-fluid space. This results in a no flow condition in a 2-D case (see~\cref{fig:Carman}). In order to overcome this difficulty, a reduction in radius is assumed only during LBM computations (fluid and fluid--solid interaction), which is called the hydrodynamic radius. The hydrodynamic radius allows interconnected pore space through which the surrounding fluid can flow (hydrodynamic radius r = 0.7 R to 0.95 R, where `R' is the grain radius). The hydrodynamic radius is used only during the LBM computations, and has no effect on the grain--grain interactions computed using DEM.  Different values of macroscopic permeability can be obtained for any given initial packing by varying the hydrodynamic radius of the grains, without having to change the actual granular packing. This introduces a new parameter into the system. In a physical sense, a hydrodynamic radius represents the three-dimensional permeability of a granular assembly simulated as a two-dimensional geometry.
+In DEM, the grain -- grain interaction is described based on the contact interactions. In a 3D granular assembly, the pore spaces between grains are interconnected, whereas in 2-D assembly, the grains are in contact with each other that result in a non-interconnected pore-fluid space. This results in a no flow condition in a 2-D case (see~\cref{fig:Carman}). In order to overcome this difficulty, a reduction in radius is assumed only during LBM computations (fluid and fluid--solid interaction), which is called the hydrodynamic radius. The hydrodynamic radius allows interconnected pore space through which the surrounding fluid can flow (hydrodynamic radius \textit{r} = 0.7 \textit{R} to 0.95 \textit{R}, where `\textit{R}' is the grain radius). The hydrodynamic radius is used only during the LBM computations, and has no effect on the grain--grain interactions computed using DEM.  Different values of macroscopic permeability can be obtained for any given initial packing by varying the hydrodynamic radius of the grains, without having to change the actual granular packing. This introduces a new parameter into the system. In a physical sense, a hydrodynamic radius represents the three-dimensional permeability of a granular assembly simulated as a two-dimensional geometry.
 
 
 \begin{figure}[htpb]
@@ -154,9 +154,184 @@ In this study, a 2D polydisperse system ($d_{max}/d_{min} = 1.8$) of circular di
 
 The runout distance is measured by tracking the farthest particle that is still in contact with the main granular mass. The normalized runout distance is measured as $\Delta L = (L_f - L_i)/ L_i$, where $L_f$ is the runout distance at a given time and $L_i$ is the initial width of the column. The time is normalised as $t / \tau_c$, where $\tau_c$ is defined as the critical time of the dry granular column collapse to be fully mobilised on a horizontal plane ($\tau_c = \sqrt(H/g)$)~\citep{Staron2007a}.
 
+\section{Effect of initial density - Loose versus Dense}
+\citet{Topin2011} observed from CFD-DEM simulations of granular collapse on a horizontal plane in different viscous fluids that, for a given initial geometry, the run-out distance in the dry case is significantly higher than the submerged case, an observation similar to the experimental results of~\citet{Cassar2005}. For a given geometry, the initial volume fraction of the granular mass has a significant effect on the morphology of the granular deposits in fluid~\citep{Rondon2011a, Pailha2008}. In the dry case, inertia is responsible for the enhanced mobility at steeper slopes. In the submerged cases, however, the grain-inertial effects remain negligible because of the predominance of viscous effects on the granular dynamics~\citep{Topin2011}. This could explain the importance of the initial volume fraction on the runout behaviour of submerged granular columns. In this study, we examine the effect of initial packing density on the runout behaviour at \SI{5}{\degree} slope angle in both dry and submerged cases. 
+
+In order to understand the influence of the initial packing density on the runout behaviour, a collapse of loose sand column (initial packing density $\Phi = 79\%$) was simulated at \SI{5}{\degree} slope angle and the results are compared to the dense sand column cases (initial packing density $\Phi = 83\%$), which was presented earlier. 
+
+\subsection{Effect of permeability}
+
+The effect of permeability on granular flow down a slope 
+angle of \SI{5}{\degree} is investigated for the case of collapse of a granular column with an initial aspect ratio of 0.8 at different permeabilities. The 
+hydrodynamic radius of a loosely packed granular column is varied from 
+\textit{r} = 0.7 \textit{R} (high permeability), 0.75 \textit{R}, 0.8 
+\textit{R}, 0.85 \textit{R} to 0.9 \textit{R} (low permeability). The run-out 
+distance is found to increase with decreasing permeability of the granular 
+assembly (\cref{fig:run5}). The run-out distance for high permeability 
+conditions (\textit{r} = 0.7 \textit{R} -- 0.8 \textit{R}) are lower than their 
+dry counterparts. Although, a decrease in permeability resulted in an increase 
+in the run-out distance, no significant change in the run-out behaviour is 
+observed for a hydrodynamic radii of up to 0.8 \textit{R}.
+
+With a further decrease in permeability (\textit{r} = 0.85 \textit{R} and 0.9 
+\textit{R}), the run-out 
+distance in the fluid is longer than that observed in the dry 
+condition. At a very low permeability (\textit{r} = 0.9 \textit{R}), the 
+flowing granular mass
+entrains more water at the base, which causes a reduction in the effective 
+stress accompanied by a lubrication effect. This can be seen by a significant 
+increase in the peak kinetic energy and the sustained duration of the peak 
+energy, in comparison to the dry and the highly permeable conditions 
+(\cref{fig:KE5}). However, the permeability of the granular column did not have 
+an influence on the evolution of height during the flow. But, the dry granular 
+column tends to collapse more than the immersed granular column due to the lack 
+of viscous dissipation (\cref{fig:height5}).
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\includegraphics[width=0.95\columnwidth]{figs/Runout_loose_5_slope}
+\caption{Evolution of run-out with time.}
+\label{fig:run5}
+\end{subfigure}\\
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\includegraphics[width=0.95\columnwidth]{figs/Height_loose_5_slope}
+\caption{Evolution of height with time.}
+\label{fig:height5}
+\end{subfigure}
+\caption{Evolution of run-out and height with time for different permeability 
+(loose slope \SI{5}{\degree}).}
+\label{fig:height_run_5}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.95\textwidth}
+\includegraphics[width=0.95\columnwidth]{figs/KE_loose_5_slope}
+\caption{Evolution of kinetic energy with time.}
+\label{fig:KE5}
+\end{subfigure} \\
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\includegraphics[width=0.95\columnwidth]{figs/Voronoi_5}
+\caption{Evolution of packing density with time.}
+\label{fig:voro5}
+\end{subfigure}
+\caption{Evolution of kinetic energy and packing density with time for 
+different permeability (loose slope \SI{5}{\degree}).}
+\label{fig:voro_ke_5}
+\end{figure}
+
+\begin{figure}
+\makebox[\linewidth][c]{
+\begin{subfigure}[b]{0.95\textwidth}
+	\centering
+    \includegraphics[width=0.95\textwidth]{figs/loose_slope/LBM_660_Slope5_r07}
+    \caption{r = 0.7 R}
+    \label{fig:LBM_660_Slope5_r07}
+\end{subfigure}
+}\\
+\makebox[\linewidth][c]{
+\begin{subfigure}[b]{0.95\textwidth}
+	\centering
+    \includegraphics[width=0.95\textwidth]{figs/loose_slope/LBM_660_Slope5_r075}
+    \caption{r = 0.75 R}
+    \label{fig:LBM_660_Slope5_r075}
+\end{subfigure}
+} \\
+\makebox[\linewidth][c]{
+\begin{subfigure}[b]{0.95\textwidth}
+	\centering
+    \includegraphics[width=0.95\textwidth]{figs/loose_slope/LBM_660_Slope5_r08}
+    \caption{r = 0.8 R}
+    \label{fig:LBM_660_Slope5_r08}
+\end{subfigure}
+}\\
+\makebox[\linewidth][c]{
+\begin{subfigure}[b]{0.95\textwidth}
+	\centering
+    \includegraphics[width=0.95\textwidth]{figs/loose_slope/LBM_660_Slope5_r085}
+    \caption{r = 0.85 R}
+    \label{fig:LBM_660_Slope5_r085}
+\end{subfigure}
+}\\
+\makebox[\linewidth][c]{
+\begin{subfigure}[b]{0.95\textwidth}
+	\centering
+    \includegraphics[width=0.95\textwidth]{figs/loose_slope/LBM_660_Slope5_r09}
+    \caption{r = 0.9 R}
+    \label{fig:LBM_660_Slope5_r09}
+\end{subfigure}
+}
+\caption{Evolution of the flow front at $t = 3\tau_c$ for different 
+permeabilities (loose slope 5\si{\degree}).}
+\label{fig:slope_loose_5}
+\end{figure}
+
+Positive pore-pressure generation at the base of the flow is observed for low 
+permeability conditions. Inspection of the local packing density showed 
+entrainment of water at the base of the flow, which can also be observed by the 
+steep decrease in the packing density (\cref{fig:voro5}) for the very low 
+permeability condition (\textit{r} = 0.9 \textit{R}). At the end of the flow 
+($t \ge 10 \times \tau_c$), the excess pore-pressure dissipates and the 
+granular flows, irrespective of their permeability, reach almost the same 
+packing density.
+
+
+\Cref{fig:Perm_Runout_loose_dense} shows the effect of permeability on the 
+run-out behaviour for a dense and a loose granular column collapse on a slope 
+of 5\si{\degree} and 0\si{\degree}. In both cases, the run-out distance 
+increases with increase in the hydrodynamic radius (decrease in permeability). 
+However in the dense case, the run-out distance observed in the fluid is 
+shorter than the dry condition. Whereas in the loose condition, the run-out 
+distance increases significantly at low permeabilities and results in a longer 
+run-out distance in the submerged condition in comparison to the dry granular 
+collapse. The comparison of loose and dense collapse on slopes of 
+0\si{\degree} and 5\si{\degree} shows that the initial packing density plays a 
+significant role in the case of collapse on a horizontal plane, however at a 
+slope of 5\si{\degree}, the run-out distance is unaffected by the initial 
+packing density at high permeability conditions. This shows that at high 
+permeabilities, the viscous drag forces predominate resulting in almost the 
+same run-out distance for both dense and loose conditions. However at a low 
+permeability (\textit{r} = 0.9 \textit{R}), hydroplaning is observed in the 
+case of loose 
+granular column resulting in a substantially longer run-out distance than the 
+dense granular column in submerged condition. 
+%
+\begin{figure}[!ht]
+	\centering
+\begin{subfigure}[b]{0.85\textwidth}
+	\centering
+    \includegraphics[width=\textwidth]{figs/Perm_Runout_a08_dense}
+    \caption{Dense}
+    \label{fig:Perm_Runout_a08_dense}
+\end{subfigure}\\
+\begin{subfigure}[b]{0.85\textwidth}
+	\centering
+    \includegraphics[width=\textwidth]{figs/Perm_Runout_a08_loose}
+    \caption{Loose}
+    \label{fig:Perm_Runout_a08_loose}
+\end{subfigure}
+\caption{Comparison between dry and submerged granular column for a slope angle 
+of 0\si{\degree} and 5\si{\degree} on the effect of permeability on the run-out 
+distance (Dense and Loose).}
+\label{fig:Perm_Runout_loose_dense}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.97\columnwidth]{figs/Perm_Runout_slope}
+\caption{Effect of permeability on the run-out behaviour for different slope 
+angle and the initial packing density.}
+\label{fig:Perm_Runout_slope}
+\end{figure}
+
 \selectlanguage{english}
 
-\printbibliography[heading=none]
+{\renewcommand{\markboth}[2]{}% Remove header adjustment
+  \printbibliography}
 
 \section*{Authors}\small
 Dr.\ Krishna Kumar\\
