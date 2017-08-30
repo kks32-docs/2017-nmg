@@ -134,7 +134,7 @@ computation.}
 
 \section{Granular column collapse on slopes in fluid}
 \subsection{Problem definition}
-In this study, a 2D polydisperse system ($d_{max}/d_{min} = 1.8$) of circular discs in fluid was used to understand the behaviour of granular flows on inclined planes. As shown in~\cref{fig:geometry}, an inclined gravity direction was varied to examine the slope angle effect. The soil column was modelled using 1000 discs of density \SI{2650}{\kg\per\cubic\meter} and a contact friction angle of \SI{26}{\degree}. The aspect ratio `a' is defined as the ratio of the initial height ($H_i$) to the width ($L_i$) of the column. A granular column of aspect ratio `a' of 0.8 was used. The collapse of the column was simulated inside a fluid with a density of \SI{1000}{\kg\per\cubic\meter} and a kinematic viscosity of \SI{1e-6}{\square\meter\per\second}. The choice of a 2D geometry has the advantage of cheaper computational effort than a 3D case, making it feasible to simulate very large systems. To model 3D permeability nature of spheres as 2D discs, a reduction in radius: a  hydrodynamic radius r = 0.9R was adopted only for LBM computations, as described earlier. Dry column collapse was also performed to study the effect of hydrodynamic forces on the runout distance. The runout distance is normalised with respect to the initial width of the column. The granular column collapse was allowed to flow down a slopes of \SI{5}{\degree}. 
+In this study, a 2D polydisperse system ($d_{max}/d_{min} = 1.8$) of circular discs in fluid was used to understand the behaviour of granular flows on inclined planes. As shown in~\cref{fig:setup}, an inclined gravity direction was varied to examine the slope angle effect. The soil column was modelled using 1000 discs of density \SI{2650}{\kg\per\cubic\meter} and a contact friction angle of \SI{26}{\degree}. The aspect ratio `a' is defined as the ratio of the initial height ($H_i$) to the width ($L_i$) of the column. A granular column of aspect ratio `a' of 0.8 was used. The collapse of the column was simulated inside a fluid with a density of \SI{1000}{\kg\per\cubic\meter} and a kinematic viscosity of \SI{1e-6}{\square\meter\per\second}. The choice of a 2D geometry has the advantage of cheaper computational effort than a 3D case, making it feasible to simulate very large systems. To model 3D permeability nature of spheres as 2D discs, a reduction in radius: a  hydrodynamic radius r = 0.9R was adopted only for LBM computations, as described earlier. Dry column collapse was also performed to study the effect of hydrodynamic forces on the runout distance. The runout distance is normalised with respect to the initial width of the column. The granular column collapse was allowed to flow down a slopes of \SI{5}{\degree}. 
 
 
 \begin{figure}[htpb]
@@ -144,13 +144,15 @@ In this study, a 2D polydisperse system ($d_{max}/d_{min} = 1.8$) of circular di
 \end{figure}
 
 \section{Collapse of a dense granular column}
-\Cref{fig:dense-s5-r09} shows the snapshots of the flow evolution of a dense granular column (aspect ratio 0.8), which has an initial packing density of $\Phi = 83\%$, on a \SI{5}{\degree} slope. The failure begins at the toe end of the column, and the shear-failure surface propagates into the column at an angle of about \SI{45 - 50}{\degree} The failure is due to collapse of the flank.  Force chains can be observed in the static region of the column. Once the material is destabilised, the surface of the flowing granular mass interacts with the surrounding fluid, resulting in the formation of turbulent vortices. The vortices are formed only during the horizontal acceleration phase and interact with the grains at the surface resulting in an irregular free surface. As the granular material ceases to flow, force chains restart to develop at the flow front, revealing consolidation of the granular mass with an increase in the shear resistance. The vortices formed during the collapse start to raise above the settled granular mass.
+\Cref{fig:dense-s5-r09} shows the snapshots of the flow evolution of a dense granular column (aspect ratio 0.8), which has an initial packing density of $\Phi = 83\%$, on a \SI{5}{\degree} slope. The failure begins at the toe end of the column, and the shear-failure surface propagates into the column at an angle of about 45 - \SI{50}{\degree} The failure is due to collapse of the flank.  Force chains can be observed in the static region of the column. Once the material is destabilised, the surface of the flowing granular mass interacts with the surrounding fluid, resulting in the formation of turbulent vortices. The vortices are formed only during the horizontal acceleration phase and interact with the grains at the surface resulting in an irregular free surface. As the granular material ceases to flow, force chains restart to develop at the flow front, revealing consolidation of the granular mass with an increase in the shear resistance. The vortices formed during the collapse start to raise above the settled granular mass.
 
 \begin{figure}[htpb]
 \includegraphics[width=0.97\columnwidth]{figs/dense_s5_r09}
 \caption{Evolution of a dense sand column (aspect ratio 0.8) on a slope of \SI{5}{\degree}. }
 \label{fig:dense-s5-r09}
 \end{figure}
+
+The runout distance is measured by tracking the farthest particle that is still in contact with the main granular mass. The normalized runout distance is measured as $\Delta L = (L_f - L_i)/ L_i$, where $L_f$ is the runout distance at a given time and $L_i$ is the initial width of the column. The time is normalised as $t / \tau_c$, where $\tau_c$ is defined as the critical time of the dry granular column collapse to be fully mobilised on a horizontal plane ($\tau_c = \sqrt(H/g)$)~\citep{Staron2007a}.
 
 \selectlanguage{english}
 
@@ -166,19 +168,15 @@ e-mail: \url{kks32@cam.ac.uk}\\
 Web: \url{www.cb-geo.com}\\
 
 Prof.\ Jean-Yves Delenne\\
-Department of Engineering \\
-University of Cambridge \\
-Cambridge, CB2 1PZ\\
-Tel.: +44(0) 1223 748 589\\
-e-mail: \url{kks32@cam.ac.uk}\\
-Web: \url{www.cb-geo.com}\\
+IATE INRA-CIRAD-Montpellier Supagro-UM2\\
+University of Montpellier 2 \\
+e-mail: \url{jean-yves.delenne@supagro.inra.fr}\\
 
 Prof.\ Kenichi Soga\\
-Department of Engineering \\
-University of Cambridge \\
-Cambridge, CB2 1PZ\\
-Tel.: +44(0) 1223 748 589\\
-e-mail: \url{kks32@cam.ac.uk}\\
-Web: \url{www.cb-geo.com}\\
+Department of Civil and Environmental Engineering \\
+University of California Berkeley \\
+California, USA\\
+e-mail: \url{soga@berkeley.edu}\\
+Web: \url{www.ce.berkeley.edu/people/faculty/soga}\\
 
 \end{document}
